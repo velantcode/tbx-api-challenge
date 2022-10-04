@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api-dev:
+    container_name: app-dev
+    image: app-dev
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./:/src
+    command: npm run dev
+    ports:
+      - "8081:8081"
+    environment:
+      NODE_ENV: development

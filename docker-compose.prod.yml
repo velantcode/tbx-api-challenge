@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api-prod:
+    container_name: api-prod
+    image: api-prod
+    build:
+      context: .
+      target: production
+    volumes:
+      - .:/src
+    command: npm run start
+    ports:
+      - "8081:8081"
+    environment:
+      NODE_ENV: production
